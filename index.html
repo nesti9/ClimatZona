@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Климатическая зона — подбор кондиционера за 30 секунд</title>
+<meta name="description" content="Укажите тип объекта и площадь — покажем мощность и примерную стоимость кондиционера.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="brand">Комфортек</p>
+    <h1 class="hero__title">Климатическая зона</h1>
+    <p class="hero__lead">Подберите кондиционер за 30 секунд: покажем мощность и примерную стоимость.</p>
+  </div>
+</header>
+
+<main class="calc" id="calc">
+  <section class="panel" aria-labelledby="calc-title">
+    <h2 id="calc-title" class="visually-hidden">Калькулятор подбора кондиционера</h2>
+
+    <ol class="steps" aria-label="Этапы подбора">
+      <li class="steps__item is-active" data-step-label="1">Тип объекта</li>
+      <li class="steps__item" data-step-label="2">Площадь</li>
+      <li class="steps__item" data-step-label="3">Результат</li>
+    </ol>
+    <div class="progress"><div class="progress__bar" id="progress"></div></div>
+
+    <form id="calc-form" novalidate>
+      <fieldset class="step is-active" data-step="1">
+        <legend class="step__title">Тип объекта</legend>
+        <div class="options options--cards">
+          <label class="option"><input type="radio" name="type" value="Квартира"><span class="option__body"><span class="option__icon" aria-hidden="true">▥</span>Квартира</span></label>
+          <label class="option"><input type="radio" name="type" value="Дом"><span class="option__body"><span class="option__icon" aria-hidden="true">⌂</span>Дом</span></label>
+          <label class="option"><input type="radio" name="type" value="Офис"><span class="option__body"><span class="option__icon" aria-hidden="true">▤</span>Офис</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="2">
+        <legend class="step__title">Площадь помещения</legend>
+        <div class="options options--pills" id="areas"></div>
+        <div class="chosen" id="chosen" hidden>
+          <span class="chosen__label">Выбранный вариант</span>
+          <span class="chosen__value" id="chosen-value"></span>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn--ghost" id="back">Назад</button>
+          <button type="submit" class="btn btn--primary" id="calculate" disabled>Рассчитать</button>
+        </div>
+      </fieldset>
+
+      <section class="step" data-step="3" aria-live="polite">
+        <h3 class="step__title">Результат расчёта</h3>
+        <article class="result">
+          <div class="result__media" aria-hidden="true"></div>
+          <div class="result__body">
+            <p class="result__brand">Комфортек</p>
+            <p class="result__model" id="res-model"></p>
+            <p class="result__note" id="res-note"></p>
+            <p class="result__price" id="res-price"></p>
+            <div class="actions">
+              <a class="btn btn--primary" href="tel:+70000000000">Получить консультацию</a>
+              <button type="button" class="btn btn--ghost" id="restart">Пересчитать</button>
+            </div>
+          </div>
+        </article>
+        <p class="hint">Стоимость ориентировочная. Точный расчёт зависит от модели и монтажа.</p>
+      </section>
+    </form>
+  </section>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>
